@@ -1,5 +1,5 @@
 <?php
-//stert session
+//start session
 session_start();
 
 

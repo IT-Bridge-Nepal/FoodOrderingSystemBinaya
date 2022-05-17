@@ -83,23 +83,35 @@ if (isset($_POST['submit'])) {
         // upload the image 
         // to upload image we need image name, source path and destination path
         $image_name = $_FILES['image']['name'];
-        $source_path = $_FILES['image']['tmp_name'];
-        $destination_path = "../images/category/" . $image_name;
 
-        // var_dump($source_path);
-        // die;
-        // finally upload the file
-        $upload = move_uploaded_file($source_path, $destination_path);
+        // upload image if only inage is selected
+        if ($image_name != '') {
 
-        // var_dump($upload);
-        // die();
-        // check whether the image is uploaded or not
-        // if not uploaded we will stop the process and redirect with error msg
-        if ($upload == FALSE) {
-            // set session msg
-            $_SESSION['upload'] = "Failed to upload image";
-            header('location:' . SITEURL . 'admin/add-category.php');
-            die();
+            // auto rename image
+            // get extension if the image(.jpg, .png, .gif etc)
+            $ext = end(explode('.', $image_name));
+
+            // rename the image
+            $image_name = "Food_Category_" . rand(000, 999) . '.' . $ext;
+
+            $source_path = $_FILES['image']['tmp_name'];
+            $destination_path = "../images/category/" . $image_name;
+
+            // var_dump($destination_path);
+            // die;
+            // finally upload the file
+            $upload = move_uploaded_file($source_path, $destination_path);
+
+            // var_dump($upload);
+            // die();
+            // check whether the image is uploaded or not
+            // if not uploaded we will stop the process and redirect with error msg
+            if ($upload == FALSE) {
+                // set session msg
+                $_SESSION['upload'] = "Failed to upload image";
+                header('location:' . SITEURL . 'admin/add-category.php');
+                die();
+            }
         }
     } else {
         // dont upload image and set the image name blank
