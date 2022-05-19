@@ -1,4 +1,4 @@
-<?php include("partials-front/menu.php") ?>
+<?php include("partials-front/menu.php"); ?>
 
 
 <!-- fOOD sEARCH Section Starts Here -->
@@ -123,4 +123,4 @@
 
 
 
-<?php include("partials-front/footer.php") ?>
+<?php include("partials-front/footer.php"); ?>
