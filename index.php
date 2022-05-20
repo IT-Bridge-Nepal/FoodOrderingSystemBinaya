@@ -3,13 +3,20 @@
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
   <div class="container">
-    <form action="food-search.html" method="POST">
+    <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
       <input type="search" name="search" placeholder="Search for Food.." required />
       <input type="submit" name="submit" value="Search" class="btn btn-primary" />
     </form>
   </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
+
+<?php
+if (isset($_SESSION['order'])) {
+  echo $_SESSION['order'];
+  unset($_SESSION['order']);
+}
+?>
 
 
 
@@ -32,7 +39,7 @@
         $image_name = $row['image_name'];
 
     ?>
-        <a href="category-foods.php">
+        <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
           <div class="box-3 float-container">
             <?php
             if ($image_name == "") {
@@ -114,7 +121,7 @@
             </p>
             <br />
 
-            <a href="order.html" class="btn btn-primary">Order Now</a>
+            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
           </div>
         </div>
     <?php
@@ -130,26 +137,9 @@
   </div>
 
   <p class="text-center">
-    <a href="#">See All Foods</a>
+    <a href="<?php echo SITEURL; ?>foods.php" style="color: white;">See All Foods</a>
   </p>
 </section>
 <!-- fOOD Menu Section Ends Here -->
 
-<!-- social Section Starts Here -->
-<section class="social">
-  <div class="container text-center">
-    <ul>
-      <li>
-        <a href="#"><img src="https://img.icons8.com/fluent/50/000000/facebook-new.png" /></a>
-      </li>
-      <li>
-        <a href="#"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" /></a>
-      </li>
-      <li>
-        <a href="#"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" /></a>
-      </li>
-    </ul>
-  </div>
-</section>
-<!-- social Section Ends Here -->
 <?php include("partials-front/footer.php"); ?>

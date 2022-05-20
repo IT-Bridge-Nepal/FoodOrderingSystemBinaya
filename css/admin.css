@@ -31,11 +31,14 @@ width: 100%;
 table tr th{
     border-bottom: 1px solid black;
     padding: 1%;
-    text-align: left;
+    text-align: center;
 }
 
 table tr td{
     padding: 1%;
+    text-align: left;
+
+    
 }
 
 .btn-primary{

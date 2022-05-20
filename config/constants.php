@@ -13,3 +13,9 @@ define('DB_NAME', 'food-order');
 
 $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error($e)); //database connection
 $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error($e)); //database selection
+
+// function dd($var)
+// {
+//     var_dump($var);
+//     die();
+// }
