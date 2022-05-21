@@ -137,7 +137,7 @@ if (isset($_SESSION['order'])) {
   </div>
 
   <p class="text-center">
-    <a href="<?php echo SITEURL; ?>foods.php" style="color: white;">See All Foods</a>
+    <a href="<?php echo SITEURL; ?>foods.php"><b> See All Foods</b></a>
   </p>
 </section>
 <!-- fOOD Menu Section Ends Here -->
